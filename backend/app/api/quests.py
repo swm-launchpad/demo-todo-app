@@ -12,13 +12,13 @@ from ..services.exp_calculator import add_experience, calculate_exp_to_next_leve
 
 router = APIRouter()
 
-@router.get("/", response_model=List[QuestSchema])
+@router.get("", response_model=List[QuestSchema])
 def get_quests(user_id: int = 1, db: Session = Depends(get_db)):
     """Get all quests for a user"""
     quests = db.query(Quest).filter(Quest.user_id == user_id).order_by(Quest.created_at.desc()).all()
     return quests
 
-@router.post("/", response_model=QuestSchema)
+@router.post("", response_model=QuestSchema)
 def create_quest(quest: QuestCreate, user_id: int = 1, db: Session = Depends(get_db)):
     """Create a new quest"""
     exp_reward = EXP_REWARDS[quest.difficulty]

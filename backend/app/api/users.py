@@ -7,7 +7,7 @@ from ..schemas.user import User as UserSchema, UserCreate
 
 router = APIRouter()
 
-@router.post("/", response_model=UserSchema)
+@router.post("", response_model=UserSchema)
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
     """Create a new user (for demo, no password required)"""
     db_user = db.query(User).filter(User.username == user.username).first()

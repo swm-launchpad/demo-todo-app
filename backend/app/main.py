@@ -9,7 +9,8 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="RPG Quest Manager API",
     description="Level up your productivity with gamified task management!",
-    version="1.0.0"
+    version="1.0.0",
+    redirect_slashes=False
 )
 
 # Configure CORS
