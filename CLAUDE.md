@@ -49,6 +49,10 @@ http://localhost:5173
 
 # Build for production (inside container)
 npm run build
+
+# Configure API URL
+# Edit frontend/.env file:
+VITE_API_URL=http://your-api-url:8000
 ```
 
 ## Architecture
@@ -68,7 +72,7 @@ npm run build
 - No Redux/Context - all state in App.jsx
 - Demo mode triggers automatic quest creation and completion sequences
 - Background depth changes based on user level (shallow → coastal → deep → abyss)
-- All API calls use axios with `VITE_API_URL` environment variable
+- All API calls use axios with `VITE_API_URL` environment variable (configured in frontend/.env)
 
 ### Backend API Structure
 - FastAPI with automatic OpenAPI docs

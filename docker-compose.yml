@@ -37,8 +37,10 @@ services:
     build: ./frontend
     ports:
       - "5173:5173"
+    env_file:
+      - ./frontend/.env
     environment:
-      VITE_API_URL: http://localhost:8000
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
     volumes:
       - ./frontend:/app
       - /app/node_modules
